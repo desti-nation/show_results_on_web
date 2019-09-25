@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>result</title>
+</head>
+<body>
+<h1> Result </h1>
+<table border="1" align = "middle">
+    <!-- load data: data.js -->
+    <script type="text/javascript" src ="data.js"></script>
+    <script type="text/javascript">
+    // title
+    document.write("<tr>");
+    for(var i = 0; i < data_name.length; i ++)
+    {
+        document.write('<td>' + data_name[i] + "</td>")
+    }
+    document.write("</tr>");
+    // each line for each image
+    for (var i=0; i<img_names.length; i++)
+    {
+        img_name = img_names[i];
+
+        // image 
+        document.write("<tr>");
+        document.write('<td>' + img_name + '</td>');
+        for (var j=0;j<data_root.length;j++)
+        {
+            document.write('<td><center><img src="'+ data_root[j] + img_name + '.jpg" alt="a" onerror=this.onerror=null;this.src="'+ data_root[j] + img_name + '.png"' + '></center></td>');
+        }
+        
+        document.write("</tr>");
+        
+        // nmi
+        document.write('<tr>');
+        document.write('<td>NMI</td>');
+        for (var j=0;j<data_root.length;j++)
+        {
+            if (j < 2)
+            {
+                document.write('<td>' + '</td>');
+            }   
+            else
+            {
+                document.write('<td>' + nmi[j][i] + '</td>');
+            }
+                
+        }
+        document.write('</tr>');
+        
+        // pred
+        document.write('<tr>');
+        document.write('<td>PRED</td>');
+        for (var j=0;j<data_root.length;j++)
+        {
+            if (j < 2)
+            {
+                document.write('<td>' + '</td>');
+            }   
+            else
+            {
+                document.write('<td>' + pred[j][i] + '</td>');
+            }
+        }
+        document.write('</tr>');
+    }
+
+    </script>
+</table>
+</body>
+</html>
